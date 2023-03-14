@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "52ee2f41-9e88-4f1c-b3c6-d4ec4c0dae9f",
-		"name": "Simple-Grocery",
+		"_postman_id": "a6e44220-3e60-4caf-b31f-9359efea5c4b",
+		"name": "Simple-Grocery Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7066118"
 	},
@@ -119,13 +119,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/carts/4643",
+					"raw": "{{baseUrl}}/carts/XQWPytd6MOexN0_QIlyg7",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"carts",
-						"4643"
+						"XQWPytd6MOexN0_QIlyg7"
 					]
 				}
 			},
@@ -150,13 +150,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/carts/4643/items",
+					"raw": "{{baseUrl}}/carts/XQWPytd6MOexN0_QIlyg7/items",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"carts",
-						"4643",
+						"XQWPytd6MOexN0_QIlyg7",
 						"items"
 					]
 				}
@@ -171,7 +171,7 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(201);\r",
 							"});\r",
 							""
 						],
@@ -202,7 +202,7 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(201);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -214,7 +214,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \"productId\": 1234\r\n}",
+					"raw": "{\r\n   \"productId\": 4643\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -222,152 +222,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/carts/SQkC4CY5HLNnrzCZ6zc3P/items",
+					"raw": "{{baseUrl}}/carts/XQWPytd6MOexN0_QIlyg7/items",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"carts",
-						"SQkC4CY5HLNnrzCZ6zc3P",
+						"XQWPytd6MOexN0_QIlyg7",
 						"items"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "modify-Item-cart ",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/carts/SQkC4CY5HLNnrzCZ6zc3P/items/216135210",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"carts",
-						"SQkC4CY5HLNnrzCZ6zc3P",
-						"items",
-						"216135210"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Replace-Item-cart",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n   \"productId\": 4643,\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/carts/SQkC4CY5HLNnrzCZ6zc3P/items/216135210",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"carts",
-						"SQkC4CY5HLNnrzCZ6zc3P",
-						"items",
-						"216135210"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete-Item-Cart",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/carts/SQkC4CY5HLNnrzCZ6zc3P/items/216135210",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"carts",
-						"SQkC4CY5HLNnrzCZ6zc3P",
-						"items",
-						"216135210"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Orders",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/orders",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"orders"
 					]
 				}
 			},
@@ -381,7 +243,7 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(201);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -393,7 +255,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"clientName\":\"Chanti\",\r\n    \"clientEmail\" : \"nan@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"clientName\":\"Chanti\",\r\n    \"clientEmail\" : \"nan1@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -407,162 +269,6 @@
 					],
 					"path": [
 						"api-clients"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "OrderId",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer c1fd5d788c6baaae65cd1c7d1f1b615e1a4566b98ce545bb612b035d564dc317",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{baseUrl}}/orders/56WRUk208WpIN0kK52Oiz",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"orders",
-						"56WRUk208WpIN0kK52Oiz"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Order",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer c1fd5d788c6baaae65cd1c7d1f1b615e1a4566b98ce545bb612b035d564dc317",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{baseUrl}}/orders",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"orders"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Order",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer c1fd5d788c6baaae65cd1c7d1f1b615e1a4566b98ce545bb612b035d564dc317",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"cartId\":\"SQkC4CY5HLNnrzCZ6zc3P\",\r\n    \"customerName\":\"Nan\",\r\n    \"comment\": \"This is Nan\"\r\n\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/orders/56WRUk208WpIN0kK52Oiz",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"orders",
-						"56WRUk208WpIN0kK52Oiz"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Order",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer c1fd5d788c6baaae65cd1c7d1f1b615e1a4566b98ce545bb612b035d564dc317",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{baseUrl}}/orders/56WRUk208WpIN0kK52Oiz",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"orders",
-						"56WRUk208WpIN0kK52Oiz"
 					]
 				}
 			},
