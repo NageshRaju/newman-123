@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "b8e8cf4a-6faf-461b-b6cd-97f2d94ef250",
+		"name": "Automation-Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AccessToken",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-GP-Version",
+						"value": "2020-10-22"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"app_id\": \"8zjesobm33RlAGdEV2feptZOJoVLR6lE\",\r\n    \"nonce\": \"transactionapi\",\r\n    \"secret\": \"9e716028ca9b6bbef4058a2e3c1b307184207d83526ff6f1735ec1f29016b5eb5b87ceca2d0cad6ea2b01f3e01bbc07e4fa53fcb7cd9f33c866795957c1cac1c\",\r\n    \"grant_type\": \"client_credentials\",\r\n    \"interval_to_expire\": \"WEEK\"\r\n}"
+				},
+				"url": {
+					"raw": "https://apis-dev.globalpay.com/ucp/accesstoken",
+					"protocol": "https",
+					"host": [
+						"apis-dev",
+						"globalpay",
+						"com"
+					],
+					"path": [
+						"ucp",
+						"accesstoken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PreAuth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify status Code\"),function()\r",
+							"{\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.expect(jsonData.code).to.be.eql(200);\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Verify resultCode\"),function()\r",
+							"{\r",
+							"pm.expect(pm.response.status).to.be.eq(\"PREAUTHORIZED\");\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer {{access_token}}"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "x-gp-version",
+						"value": "2021-03-22"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"merchant_id\": \"{{merchant_id}}\",\n    \"account_id\": \"{{account_id}}\",\n    \"channel\": \"{{channel}}\",\n    \"capture_mode\": \"{{capture_mode}}\",\n    \"country\": \"{{country}}\",\n    \"type\": \"{{type}}\",\n    \"amount\": \"{{amount}}\",\n    \"currency\": \"{{currency}}\",\n    \"reference\": \"@@@+#@@@9@77867sdfs@@\",\n    \"user_reference\": \"User3478\",\n    \"initiator\": \"MERCHANT\",\n    \"stored_credential\": {\n        \"model\": \"INSTALLMENT\",\n        \"reason\": \"\",\n        \"sequence\": \"SUBSEQUENT\"\n    },\n    \"payment_method\": {\n        \"name\": \"Jane Deo\",\n        \"narrative\": \"TDBSJBJmbjbjhb$^$^HJKhigu\",\n        \"entry_mode\": \"ECOM\",\n        \"card\": {\n            \"number\": \"4012001037141112\",\n            \"expiry_month\": \"12\",\n            \"expiry_year\": \"28\",\n            \"cvv\": \"456\",\n            \"avs_address\": \"JDC123\",\n            \"avs_postal_code\": \"2345\",\n            \"category\":\"BUSINESS\"\n        }\n    },\n    \"description\": \"describe\",\n    \"order\": {\n        \"reference\": \"987621724937493857872437982374982374977429374892374982374%$54#3()9832749872394\",\n        \"items\": [\n            {\n                \"reference\": \"Bag11232\",\n                \"label\": \"aa\",\n                \"description\": \"aa\",\n                \"quantity\": \"1\",\n                \"unit_amount\": \"3000\",\n                \"unit_currency\": \"EUR\",\n                \"tax_amount\": \"750\"\n            },\n            {\n                \"label\": \"ab\",\n                \"description\": \"ab\",\n                \"quantity\": \"1\",\n                \"unit_amount\": \"6000\",\n                \"unit_currency\": \"EUR\",\n                \"tax_amount\": \"750\"\n            }\n        ]\n    },\n    \"payer\": {\n        \"billing_address\": {\n            \"line1\": \"ab cd\"\n        },\n        \"reference\": \"123reference\"\n    }\n}"
+				},
+				"url": {
+					"raw": "https://{{host_name}}/ucp/transactions",
+					"protocol": "https",
+					"host": [
+						"{{host_name}}"
+					],
+					"path": [
+						"ucp",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
